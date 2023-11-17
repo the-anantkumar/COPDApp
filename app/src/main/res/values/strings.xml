@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">COPDApp</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="seeker">Seeker</string>
+    <string name="caregiver">Caregiver</string>
+    <string name="patient">Patient</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="copd_awareness">COPD Awareness</string>
+    <string name="copd_questionnaire">COPD Questionnaire</string>
+    <string name="walk_test_game">Walk Test Game</string>
+    <string name="community_chat">Community Chat</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="copd_app">COPD App</string>
+    <string name="welcome">Welcome!</string>
+    <string name="todo">TODO</string>
+    <string name="welcome_to_the_home_screen">Welcome to the Home Screen</string>
+    <string name="medical_adherence">Medical Adherence</string>
+    <string name="todo1">TODO</string>
+</resources>

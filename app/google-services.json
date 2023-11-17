@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "809968288439",
+    "project_id": "copdapp-9e693",
+    "storage_bucket": "copdapp-9e693.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809968288439:android:dfcf74fc80ca529af8c332",
+        "android_client_info": {
+          "package_name": "com.example.copdapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0keHAI7ToJndeAOwz4qC5HUonjHQWh58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
