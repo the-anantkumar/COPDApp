@@ -19,4 +19,11 @@
     <string name="welcome_to_the_home_screen">Welcome to the Home Screen</string>
     <string name="medical_adherence">Medical Adherence</string>
     <string name="todo1">TODO</string>
+    <string name="copd_awareness_info">This is for testing purposes. We will add more data according to whatever is required to be added here.</string>
+    <string name="often">Often</string>
+    <string name="sometimes">Sometimes</string>
+    <string name="submit">Submit</string>
+    <string name="rarely">Rarely</string>
+    <string name="question_2_how_often_do_you_use_a_rescue_inhaler">Question 2: How often do you use a rescue inhaler?</string>
+    <string name="question_1_how_often_do_you_feel_short_of_breath">Question 1: How often do you feel short of breath?</string>
 </resources>

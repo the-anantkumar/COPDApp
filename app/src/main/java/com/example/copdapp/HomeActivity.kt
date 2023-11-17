@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 
 class HomeActivity : AppCompatActivity() {
 
@@ -16,15 +17,23 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, "Welcome to COPD App!", Toast.LENGTH_SHORT).show()
 
         findViewById<Button>(R.id.btnDashboard).setOnClickListener {
-            // Navigate to Dashboard Activity or show Dashboard content
+            //switch to the dashboard fragment
+            navigateToFragment(DashboardFragment())
+        }
+
+        findViewById<Button>(R.id.btnMedicalAdherence).setOnClickListener {
+            // Navigate to Medical Adherence
+           // navigateToFragment(MedicalAdherenceFragment())
         }
 
         findViewById<Button>(R.id.btnCOPDAwareness).setOnClickListener {
             // Navigate to COPD Awareness Activity or show COPD Awareness content
+            navigateToFragment(COPDAwarenessFragment())
         }
 
         findViewById<Button>(R.id.btnCOPDQuestionnaire).setOnClickListener {
             // Navigate to COPD Questionnaire Activity or show COPD Questionnaire content
+            navigateToFragment(COPDQuestionnaireFragment())
         }
 
         findViewById<Button>(R.id.btnWalkTest).setOnClickListener {
@@ -34,6 +43,12 @@ class HomeActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnCommunityChat).setOnClickListener {
             // Navigate to Community Chat Activity or show Community Chat content
         }
+    }
+    private fun navigateToFragment(fragment: androidx.fragment.app.Fragment) {
+        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
 
