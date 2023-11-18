@@ -70,5 +70,6 @@ class MedicationAdherenceFragment : Fragment() {
                     Toast.makeText(context, "Error adding medication: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         }
+        //implement alarms and notifications : VERY IMPORTANT
     }
 }
