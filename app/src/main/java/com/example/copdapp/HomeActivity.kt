@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnMedicalAdherence).setOnClickListener {
             // Navigate to Medical Adherence
-           // navigateToFragment(MedicalAdherenceFragment())
+           navigateToFragment(MedicationAdherenceFragment())
         }
 
         findViewById<Button>(R.id.btnCOPDAwareness).setOnClickListener {
