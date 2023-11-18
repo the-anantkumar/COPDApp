@@ -37,8 +37,14 @@ class COPDQuestionnaireFragment : Fragment() {
     }
 
     private fun calculateScore(): Int {
-        val score1 = radioGroupQuestion1.checkedRadioButtonId.let { view?.findViewById<RadioButton>(it)?.tag as? Int ?: 0 }
-        val score2 = radioGroupQuestion2.checkedRadioButtonId.let { view?.findViewById<RadioButton>(it)?.tag as? Int ?: 0 }
+        val score1 = radioGroupQuestion1.checkedRadioButtonId.let { id ->
+            view?.findViewById<RadioButton>(id)?.tag.toString().toIntOrNull() ?: 0
+        }
+        val score2 = radioGroupQuestion2.checkedRadioButtonId.let { id ->
+            view?.findViewById<RadioButton>(id)?.tag.toString().toIntOrNull() ?: 0
+        }
+        println("Score 1: $score1")
+        println("Score 2: $score2")
         return score1 + score2
     }
 
