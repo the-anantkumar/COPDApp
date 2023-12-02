@@ -12,6 +12,7 @@
         android:id="@+id/header_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:contentDescription="@string/often"
         android:src="@drawable/ic_test"/> <!-- Replace with your icon -->
 
     <TextView
