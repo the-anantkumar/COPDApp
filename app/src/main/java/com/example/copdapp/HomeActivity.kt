@@ -1,8 +1,10 @@
 package com.example.copdapp
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.DialogTitle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -39,7 +41,8 @@ class HomeActivity : AppCompatActivity() {
 
         // Set up default fragment
         if (savedInstanceState == null) {
-            navigateToFragment(DashboardFragment())
+            // Set up the default fragment
+            navigateToFragment(DashboardFragment(), "Dashboard")
         }
 
         // Set up navigation item selection
@@ -47,18 +50,25 @@ class HomeActivity : AppCompatActivity() {
             menuItem.isChecked = true
             drawerLayout.closeDrawer(GravityCompat.START)
             when (menuItem.itemId) {
-                R.id.nav_dashboard -> navigateToFragment(DashboardFragment())
-                R.id.nav_medical_adherence -> navigateToFragment(MedicationAdherenceFragment())
+                R.id.nav_dashboard -> navigateToFragment(DashboardFragment(), menuItem.title.toString())
+                R.id.nav_medical_adherence -> navigateToFragment(MedicationAdherenceFragment(), menuItem.title.toString())
                 // Add cases for other menu items
             }
             true
         }
     }
 
-    private fun navigateToFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.content_frame, fragment)
-            .commit()
+    private fun navigateToFragment(fragment: Fragment, title: String) {
+        Toast.makeText(this, "Navigating to $title", Toast.LENGTH_SHORT).show()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.content_frame, fragment)
+        transaction.commit()
+
+        // Set the toolbar title
+        supportActionBar?.title = title
+
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

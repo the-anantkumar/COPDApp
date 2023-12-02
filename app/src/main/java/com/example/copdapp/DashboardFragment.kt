@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -15,10 +16,14 @@ class DashboardFragment : Fragment() {
     private lateinit var textViewRole: TextView
     private lateinit var textViewScore: TextView
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        //toast for testing
+        Toast.makeText(context, "DashboardFragment", Toast.LENGTH_SHORT).show()
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
         textViewRole = view.findViewById(R.id.textViewRole)
