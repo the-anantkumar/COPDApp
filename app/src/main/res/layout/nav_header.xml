@@ -3,17 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center_vertical"
+    android:gravity="center"
     android:padding="16dp"
-    android:background="@drawable/ic_test">
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="#00000D">
+
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_test"/> <!-- Replace with your icon -->
 
     <TextView
         android:id="@+id/header_title"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/welcome_message"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/header_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_subtitle" /> <!-- Replace with your subtitle string -->
 
 </LinearLayout>
