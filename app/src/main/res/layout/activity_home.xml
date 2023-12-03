@@ -36,8 +36,8 @@
 
         <FrameLayout
             android:id="@+id/content_frame"
-            android:layout_width="406dp"
-            android:layout_height="770dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="7dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <!-- Main Content Area where Fragments will be loaded -->
+
 
 
 

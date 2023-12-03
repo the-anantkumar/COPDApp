@@ -1,6 +1,7 @@
 package com.example.copdapp
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -40,36 +41,58 @@ class HomeActivity : AppCompatActivity() {
         toggle.syncState()
 
         // Set up default fragment
-        if (savedInstanceState == null) {
-            // Set up the default fragment
-            navigateToFragment(DashboardFragment(), "Dashboard")
-        }
+//        if (savedInstanceState == null) {
+//            // Set up the default fragment
+//            //make a toast of success message
+//            Toast.makeText(this, "reached home page and drawer successfully", Toast.LENGTH_SHORT).show()
+//
+//
+//        }
 
-        // Set up navigation item selection
+        //set up navigation item selected listener
         navigationView.setNavigationItemSelectedListener { menuItem ->
-            menuItem.isChecked = true
-            drawerLayout.closeDrawer(GravityCompat.START)
+            //menuItem.isChecked = true
+//            drawerLayout.closeDrawer(GravityCompat.START)
+
             when (menuItem.itemId) {
-                R.id.nav_dashboard -> navigateToFragment(DashboardFragment(), menuItem.title.toString())
-                R.id.nav_medical_adherence -> navigateToFragment(MedicationAdherenceFragment(), menuItem.title.toString())
-                // Add cases for other menu items
+                R.id.nav_dashboard -> {
+                    Toast.makeText(this, "pressed dashboard", Toast.LENGTH_SHORT).show()
+                    navigateToFragment(DashboardFragment(), "Dashboard")
+                }
+                R.id.nav_medical_adherence -> {
+                    Toast.makeText(this, "pressed med", Toast.LENGTH_SHORT).show()
+                    navigateToFragment(MedicationAdherenceFragment(), "Med Adherence")
+                }
+                R.id.nav_copd_awareness -> {
+                    // Handle COPD Awareness navigation
+                    Toast.makeText(this, "pressed copd", Toast.LENGTH_SHORT).show()
+                }
+                R.id.nav_copd_questionnaire -> {
+                    // Handle COPD Questionnaire navigation
+                    Toast.makeText(this, "pressed questionnaire", Toast.LENGTH_SHORT).show()
+                }
+                R.id.nav_walk_test -> {
+                    // Handle Walk Test Game navigation
+                    Toast.makeText(this, "pressed walk test", Toast.LENGTH_SHORT).show()
+                }
+                R.id.nav_community_chat -> {
+                    // Handle Community Chat navigation
+                    Toast.makeText(this, "pressed community chat", Toast.LENGTH_SHORT).show()
+                }
             }
-            true
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true // This line ensures that true is returned for any case
         }
     }
 
     private fun navigateToFragment(fragment: Fragment, title: String) {
         Toast.makeText(this, "Navigating to $title", Toast.LENGTH_SHORT).show()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.content_frame, fragment)
-        transaction.commit()
-
+        Log.d("NavigationDrawer", "Navigating to $title")
+        supportFragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit()
         // Set the toolbar title
         supportActionBar?.title = title
-
-
-
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
