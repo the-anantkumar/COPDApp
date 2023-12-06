@@ -45,10 +45,10 @@ class HomeActivity : AppCompatActivity() {
             // Set up the default fragment
             //make a toast of success message
             Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show()
-            navigateToFragment(DashboardFragment(), "Dashboard");
+           // navigateToFragment(DashboardFragment(), "Dashboard");
            // navigateToFragment(MedicalAdherenceFragment(), "Med Adherence");
            // navigateToFragment(COPDQuestionnaireFragment(), "COPD Questionnaire");
-
+            navigateToFragment(COPDAwarenessFragment(), "COPD Awareness");
         }
 
         //set up navigation item selected listener

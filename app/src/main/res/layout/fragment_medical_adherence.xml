@@ -24,7 +24,7 @@
         android:inputType="text"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
-        tools:ignore="VisualLintTextFieldSize"/>
+        tools:ignore="VisualLintTextFieldSize" />
 
     <Button
         android:id="@+id/timePickerMedication"

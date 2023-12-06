@@ -4,9 +4,92 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/copd_awareness_info"
-        android:textSize="16sp" />
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:text="Understanding COPD"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Introduction Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chronic Obstructive Pulmonary Disease (COPD) is a common, preventable, and treatable disease characterized by persistent respiratory symptoms and airflow limitation. It is caused by significant exposure to harmful particles or gases."
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Image Illustration -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="287dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/copd_image_desc"
+            android:src="@drawable/ic_test" />
+
+        <!-- Symptoms Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Common Symptoms of COPD:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Shortness of breath, especially during physical activities\n• Wheezing\n• Chest tightness\n• Chronic cough that may produce mucus\n• Frequent respiratory infections\n• Lack of energy\n• Swelling in ankles, feet, or legs"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Causes Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Primary Causes and Risk Factors:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Long-term exposure to lung irritants like tobacco smoke, air pollution, chemical fumes, and dust\n• Genetics (Alpha-1 Antitrypsin Deficiency)\n• History of frequent childhood respiratory infections\n• Age (commonly diagnosed in people aged 40 and older)"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Prevention Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prevention and Management:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Quitting smoking and avoiding secondhand smoke\n• Reducing exposure to air pollutants\n• Regular exercise to strengthen respiratory muscles\n• Timely vaccinations to prevent respiratory infections\n• Following a healthy diet\n• Regular check-ups and adherence to prescribed medications"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Disclaimer -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Note: This information is for educational purposes only and not a substitute for professional medical advice."
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="#FF0000"/>
+
+    </LinearLayout>
 </ScrollView>
