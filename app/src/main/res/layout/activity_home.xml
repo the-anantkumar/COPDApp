@@ -7,19 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#FFFF00"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/drawer_menu"
-        tools:ignore="VisualLintBounds" />
-
+    <!-- Main Content Layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <!-- Include the Toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -46,7 +38,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FFFF00"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        tools:ignore="VisualLintBounds" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

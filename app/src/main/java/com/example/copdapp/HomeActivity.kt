@@ -49,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
            // navigateToFragment(MedicalAdherenceFragment(), "Med Adherence");
            // navigateToFragment(COPDQuestionnaireFragment(), "COPD Questionnaire");
            // navigateToFragment(COPDAwarenessFragment(), "COPD Awareness");
-             navigateToFragment(WalkTestFragment(), "Walk Test")
+            //navigateToFragment(WalkTestFragment(), "Walk Test")
         }
 
         //set up navigation item selected listener
@@ -69,18 +69,22 @@ class HomeActivity : AppCompatActivity() {
                 R.id.nav_copd_awareness -> {
                     // Handle COPD Awareness navigation
                     Toast.makeText(this, "pressed copd", Toast.LENGTH_SHORT).show()
+                    navigateToFragment(COPDAwarenessFragment(), "COPD Awareness")
                 }
                 R.id.nav_copd_questionnaire -> {
                     // Handle COPD Questionnaire navigation
                     Toast.makeText(this, "pressed questionnaire", Toast.LENGTH_SHORT).show()
+                    navigateToFragment(COPDQuestionnaireFragment(), "COPD Questionnaire")
                 }
                 R.id.nav_walk_test -> {
                     // Handle Walk Test Game navigation
                     Toast.makeText(this, "pressed walk test", Toast.LENGTH_SHORT).show()
+                    navigateToFragment(WalkTestFragment(), "Walk Test")
                 }
                 R.id.nav_community_chat -> {
                     // Handle Community Chat navigation
                     Toast.makeText(this, "pressed community chat", Toast.LENGTH_SHORT).show()
+                  //  navigateToFragment(CommunityChatFragment(), "Community Chat")
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -91,7 +95,7 @@ class HomeActivity : AppCompatActivity() {
     private fun navigateToFragment(fragment: Fragment, title: String) {
         Toast.makeText(this, "Navigating to $title", Toast.LENGTH_SHORT).show()
         Log.d("NavigationDrawer", "Navigating to $title")
-        supportFragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit()
         // Set the toolbar title
         supportActionBar?.title = title
     }
