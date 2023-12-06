@@ -15,7 +15,7 @@ class DashboardFragment : Fragment() {
 
     private lateinit var textViewRole: TextView
     private lateinit var textViewScore: TextView
-
+    private lateinit var textViewMedications: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +28,7 @@ class DashboardFragment : Fragment() {
 
         textViewRole = view.findViewById(R.id.textViewRole)
         textViewScore = view.findViewById(R.id.textViewScore)
-
+        textViewMedications = view.findViewById(R.id.textViewMedications)
         loadUserData()
 
         return view
@@ -49,6 +49,7 @@ class DashboardFragment : Fragment() {
 
                         textViewRole.text = "Role: $role"
                         textViewScore.text = "Questionnaire Score: $score"
+                        loadMedications(it)
                     } else {
                         textViewRole.text = "No role available"
                         textViewScore.text = "No score available"
@@ -60,4 +61,28 @@ class DashboardFragment : Fragment() {
                 }
         }
     }
+
+    private fun loadMedications(userId: String) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("users").document(userId).collection("medications").get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
+                    val medicationsStringBuilder = StringBuilder()
+                    for (document in documents) {
+                        val name = document.getString("name") ?: "Unknown"
+                        val dosage = document.getString("dosage") ?: "Unknown"
+                        val time = document.getString("time") ?: "Unknown"
+
+                        medicationsStringBuilder.append("$name - Dosage: $dosage at $time\n")
+                    }
+                    textViewMedications.text = medicationsStringBuilder.toString()
+                } else {
+                    textViewMedications.text = "No medications"
+                }
+            }
+            .addOnFailureListener { e ->
+                textViewMedications.text = "Error loading medications: ${e.message}"
+            }
+    }
+
 }

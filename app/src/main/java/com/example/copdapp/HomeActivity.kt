@@ -41,13 +41,15 @@ class HomeActivity : AppCompatActivity() {
         toggle.syncState()
 
         // Set up default fragment
-//        if (savedInstanceState == null) {
-//            // Set up the default fragment
-//            //make a toast of success message
-//            Toast.makeText(this, "reached home page and drawer successfully", Toast.LENGTH_SHORT).show()
-//
-//
-//        }
+        if (savedInstanceState == null) {
+            // Set up the default fragment
+            //make a toast of success message
+            Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show()
+            navigateToFragment(DashboardFragment(), "Dashboard");
+           // navigateToFragment(MedicalAdherenceFragment(), "Med Adherence")
+
+
+        }
 
         //set up navigation item selected listener
         navigationView.setNavigationItemSelectedListener { menuItem ->
@@ -61,7 +63,7 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.nav_medical_adherence -> {
                     Toast.makeText(this, "pressed med", Toast.LENGTH_SHORT).show()
-                    navigateToFragment(MedicationAdherenceFragment(), "Med Adherence")
+                    navigateToFragment(MedicalAdherenceFragment(), "Med Adherence")
                 }
                 R.id.nav_copd_awareness -> {
                     // Handle COPD Awareness navigation

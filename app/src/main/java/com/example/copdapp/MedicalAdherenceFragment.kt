@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
-class MedicationAdherenceFragment : Fragment() {
+class MedicalAdherenceFragment : Fragment() {
 
     private lateinit var medicationNameEditText: EditText
     private lateinit var dosageEditText: EditText
