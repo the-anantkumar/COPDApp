@@ -1,3 +1,5 @@
+package com.example.copdapp
+
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -11,8 +13,9 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.copdapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class WalkTestFragment : Fragment(), SensorEventListener {
 
@@ -90,6 +93,23 @@ class WalkTestFragment : Fragment(), SensorEventListener {
             stepCountTextView.text = "Steps: $stepCount"
         }
     }
+    //on finishing the test need to store the step count in firebase
+    //need to store the step count in the user's document in the database
+
+    private fun storeStepCount()
+    {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        userId?.let {uid->
+            val db = FirebaseFirestore.getInstance()
+            val userRef = db.collection("users").document(uid)
+            //print score to console
+            val score = ""
+            println("Score: $score")
+            //store score in database
+            userRef.update("", score)
+        }
+    }
+
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         // You can handle sensor accuracy changes here if needed

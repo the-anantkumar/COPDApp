@@ -1,6 +1,5 @@
 package com.example.copdapp
 
-import WalkTestFragment
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -49,8 +48,8 @@ class HomeActivity : AppCompatActivity() {
            // navigateToFragment(DashboardFragment(), "Dashboard");
            // navigateToFragment(MedicalAdherenceFragment(), "Med Adherence");
            // navigateToFragment(COPDQuestionnaireFragment(), "COPD Questionnaire");
-            //navigateToFragment(COPDAwarenessFragment(), "COPD Awareness");
-            // navigateToFragment(WalkTestFragment(), "Walk Test")
+           // navigateToFragment(COPDAwarenessFragment(), "COPD Awareness");
+             navigateToFragment(WalkTestFragment(), "Walk Test")
         }
 
         //set up navigation item selected listener
