@@ -32,7 +32,7 @@
             android:layout_height="287dp"
             android:layout_marginBottom="16dp"
             android:contentDescription="@string/copd_image_desc"
-            android:src="@drawable/ic_test" />
+            android:src="@drawable/ic_copd" />
 
         <!-- Symptoms Section -->
         <TextView
