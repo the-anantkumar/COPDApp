@@ -14,8 +14,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class COPDQuestionnaireFragment : Fragment() {
 
-    private lateinit var radioGroupQuestion1: RadioGroup
-    private lateinit var radioGroupQuestion2: RadioGroup
+    private lateinit var radioGroupCough: RadioGroup
+    private lateinit var radioGroupPhlegm: RadioGroup
+    private lateinit var radioGroupShortBreath: RadioGroup
+    private lateinit var radioGroupWheeze: RadioGroup
+    private lateinit var radioGroupColds: RadioGroup
     private lateinit var submitButton: Button
 
     override fun onCreateView(
@@ -24,9 +27,12 @@ class COPDQuestionnaireFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_copd_questionnaire, container, false)
 
-        radioGroupQuestion1 = view.findViewById(R.id.radioGroupQuestion1)
-        radioGroupQuestion2 = view.findViewById(R.id.radioGroupQuestion2)
-        submitButton = view.findViewById(R.id.btnSubmit)
+        radioGroupCough = view.findViewById(R.id.radioGroupQ1)
+        radioGroupPhlegm = view.findViewById(R.id.radioGroupQ2)
+        radioGroupShortBreath = view.findViewById(R.id.radioGroupQ3)
+        radioGroupWheeze = view.findViewById(R.id.radioGroupQ4)
+        radioGroupColds = view.findViewById(R.id.radioGroupQ5)
+        submitButton = view.findViewById(R.id.btnSubmitQ)
 
         submitButton.setOnClickListener {
             val score = calculateScore()
@@ -37,15 +43,24 @@ class COPDQuestionnaireFragment : Fragment() {
     }
 
     private fun calculateScore(): Int {
-        val score1 = radioGroupQuestion1.checkedRadioButtonId.let { id ->
+        val score1 = radioGroupCough.checkedRadioButtonId.let { id ->
             view?.findViewById<RadioButton>(id)?.tag.toString().toIntOrNull() ?: 0
         }
-        val score2 = radioGroupQuestion2.checkedRadioButtonId.let { id ->
+        val score2 = radioGroupPhlegm.checkedRadioButtonId.let { id ->
+            view?.findViewById<RadioButton>(id)?.tag.toString().toIntOrNull() ?: 0
+        }
+        val score3 = radioGroupShortBreath.checkedRadioButtonId.let { id ->
+            view?.findViewById<RadioButton>(id)?.tag.toString().toIntOrNull() ?: 0
+        }
+        val score4 = radioGroupWheeze.checkedRadioButtonId.let { id ->
+            view?.findViewById<RadioButton>(id)?.tag.toString().toIntOrNull() ?: 0
+        }
+        val score5 = radioGroupColds.checkedRadioButtonId.let { id ->
             view?.findViewById<RadioButton>(id)?.tag.toString().toIntOrNull() ?: 0
         }
         println("Score 1: $score1")
         println("Score 2: $score2")
-        return score1 + score2
+        return score1 + score2 + score3 + score4 + score5
     }
 
     private fun storeScoreInFirestore(score: Int) {

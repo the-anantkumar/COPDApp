@@ -46,8 +46,8 @@ class HomeActivity : AppCompatActivity() {
             //make a toast of success message
             Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show()
             navigateToFragment(DashboardFragment(), "Dashboard");
-           // navigateToFragment(MedicalAdherenceFragment(), "Med Adherence")
-
+           // navigateToFragment(MedicalAdherenceFragment(), "Med Adherence");
+           // navigateToFragment(COPDQuestionnaireFragment(), "COPD Questionnaire");
 
         }
 
