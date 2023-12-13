@@ -14,8 +14,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
 class WalkTestFragment : Fragment(), SensorEventListener {
 
@@ -25,6 +23,7 @@ class WalkTestFragment : Fragment(), SensorEventListener {
     private lateinit var stepCountTextView: TextView
     private lateinit var startStopFab: FloatingActionButton
     private var stepCount = 0
+    private var initialStepCount = -1
     private var testStarted = false
     private var timer: CountDownTimer? = null
     private val testDuration: Long = 6 * 60 * 1000 // 6 minutes in milliseconds
@@ -56,7 +55,7 @@ class WalkTestFragment : Fragment(), SensorEventListener {
 
     private fun startTest() {
         testStarted = true
-        stepCount = 0
+        initialStepCount = -1 // Reset to an invalid value
         stepCountTextView.text = "Steps: 0"
         startStopFab.setImageResource(R.drawable.ic_test) // Replace with your stop icon
 
@@ -89,30 +88,17 @@ class WalkTestFragment : Fragment(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (testStarted && event?.sensor?.type == Sensor.TYPE_STEP_COUNTER) {
-            stepCount++
-            stepCountTextView.text = "Steps: $stepCount"
+            if (initialStepCount < 0) {
+                initialStepCount = event.values[0].toInt()
+            }
+            val currentStepCount = event.values[0].toInt() - initialStepCount
+            stepCount = currentStepCount
+            stepCountTextView.text = "Steps: $currentStepCount"
         }
     }
-    //on finishing the test need to store the step count in firebase
-    //need to store the step count in the user's document in the database
-
-    private fun storeStepCount()
-    {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        userId?.let {uid->
-            val db = FirebaseFirestore.getInstance()
-            val userRef = db.collection("users").document(uid)
-            //print score to console
-            val score = ""
-            println("Score: $score")
-            //store score in database
-            userRef.update("", score)
-        }
-    }
-
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        // You can handle sensor accuracy changes here if needed
+        // Optional: Handle sensor accuracy changes here if needed
     }
 
     override fun onResume() {

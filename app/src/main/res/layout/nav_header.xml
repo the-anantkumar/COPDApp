@@ -6,7 +6,7 @@
     android:gravity="center"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="#00000D">
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/header_image"

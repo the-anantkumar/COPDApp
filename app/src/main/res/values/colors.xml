@@ -3,8 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#FF3F51B5</color>
-    <color name="colorPrimary">#FF3F51B5</color>
-    <color name="colorPrimaryDark">#FF303F9F</color>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#156E44</color>
     <color name="colorAccent">#FFCDDC39</color>
     <color name="colorPrimaryLight">#FFC5CAE9</color>
     <color name="colorPrimaryLighter">#FFE8EAF6</color>
@@ -12,5 +12,7 @@
     <color name="colorSecondary">#FFCDDC39</color>
     <color name="colorSecondaryDark">#FFAFB42B</color>
     <color name="colorSecondaryLight">#FFDCEDC8</color>
+    <!--yellow color-->
+    <color name="colorSecondaryLighter">#FFF9FBE7</color>
 
 </resources>
